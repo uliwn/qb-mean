@@ -9,6 +9,13 @@ function get(req, res) {
   return res.json(req.post);
 }
 
+function getList(req, res, next) {
+  const { limit = 50, skip = 0 } = req.query;
+  return Post.list({ limit, skip })
+    .then(posts => res.json(posts))
+    .catch(e => next(e));
+}
+
 function create(params) {
   const post = new Post({
     title: params.data.title,
@@ -35,4 +42,4 @@ function remove(params) {
   return load(params).then(post => post.remove());
 }
 
-export default { load, get, create, update, list, remove };
+export default { load, get, create, update, list, remove, getList };

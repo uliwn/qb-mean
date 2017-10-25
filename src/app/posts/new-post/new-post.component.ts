@@ -6,7 +6,6 @@ import { Apollo } from 'apollo-angular';
 import { GetPostsQuery } from '../graphql/queries';
 import { AddPostMutation } from '../graphql/mutations';
 
-
 @Component({
   selector: 'new-post',
   templateUrl: './new-post.component.html',
@@ -28,14 +27,18 @@ export class NewPostComponent {
     });
     this.apollo = apollo;
   }
+
   public save() {
-    if (!this.form.valid) return;
+    if (!this.form.valid) {
+      return;
+    }
+
     this.apollo.mutate({
       mutation: AddPostMutation,
       variables: {
-        "data": {
-          "title": this.form.value.title,
-          "content" :this.form.value.content
+        data: {
+          title: this.form.value.title,
+          content : this.form.value.content
         }
       },
       refetchQueries: [{
@@ -46,7 +49,7 @@ export class NewPostComponent {
       .subscribe({
         next: ({ data }) => {
           console.log('got a new post', data);
-          // get new data      
+          // get new data
           this.router.navigate(['/posts']);
         }, error: (errors) => {
           console.log('there was an error sending the query', errors);

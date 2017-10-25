@@ -20,6 +20,9 @@ import {
   MatToolbarModule,
   MatCardModule,
   MatListModule,
+  MatIconModule,
+  MatInputModule,
+  MatButtonModule,
   MatGridListModule
 } from '@angular/material';
 import 'hammerjs';
@@ -34,14 +37,16 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
+import { RegisterComponent } from './register';
+import { LoginComponent } from './login';
 import { ReactComponent } from './react';
 import { ProfileComponent } from './profile';
-// import { angularProfileCard } from '../../components/main-profile/index';
 import { NoContentComponent } from './no-content';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+// import '../styles/template/material-dashboard.scss';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -62,6 +67,8 @@ type StoreType = {
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    RegisterComponent,
+    LoginComponent,
     HomeComponent,
     ReactComponent,
     ProfileComponent,
@@ -78,7 +85,10 @@ type StoreType = {
     HttpModule,
     MatToolbarModule,
     MatCardModule,
+    MatIconModule,
     MatListModule,
+    MatInputModule,
+    MatButtonModule,
     MatGridListModule,
     RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules }),
     ApolloModule.forRoot(client),

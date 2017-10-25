@@ -22,19 +22,34 @@ function get(req, res) {
 
 /**
  * Create new user
- * @property {string} req.body.username - The username of user.
- * @property {string} req.body.mobileNumber - The mobileNumber of user.
  * @returns {User}
  */
-function create(req, res, next) {
+function create2(req, res, next) {
   const user = new User({
-    username: req.body.username,
-    mobileNumber: req.body.mobileNumber
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password
   });
 
   user.save()
     .then(savedUser => res.json(savedUser))
     .catch(e => next(e));
+}
+
+/**
+* Create new user (graphQL)
+* @returns {User}
+*/
+function create(params) {
+  const user = new User({
+    firstName: params.data.firstName,
+    lastName: params.data.lastName,
+    email: params.data.email,
+    password: params.data.password
+  });
+
+  return user.save();
 }
 
 /**
@@ -45,8 +60,10 @@ function create(req, res, next) {
  */
 function update(req, res, next) {
   const user = req.user;
-  user.username = req.body.username;
-  user.mobileNumber = req.body.mobileNumber;
+  user.firstName = req.body.firstName;
+  user.lastName = req.body.lastName;
+  user.email = req.body.email;
+  user.password = req.body.password;
 
   user.save()
     .then(savedUser => res.json(savedUser))

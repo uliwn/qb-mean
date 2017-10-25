@@ -21,6 +21,6 @@ export const UpdatePostMutation = gql`
 
 export const AddPostMutation = gql`
     mutation addPost($data: PostInput!) {
-    addPost(data: $data)
+        addPost(data: $data)
     }
 `;

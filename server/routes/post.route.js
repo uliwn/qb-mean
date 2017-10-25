@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.route('/')
   /** GET /api/posts - Get list of posts */
-  .get(postCtrl.list)
+  .get(postCtrl.getList)
 
   /** POST /api/posts - Create new post */
   .post(validate(paramValidation.createPost), postCtrl.create);
