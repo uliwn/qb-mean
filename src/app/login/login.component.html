@@ -1,0 +1,47 @@
+<div id="login">
+
+  <mat-card>
+
+    <div class="login-container">
+
+      <!-- Template Header starts -->
+      <div class="login-box-header">
+        <div class="logo-bird"></div>
+      </div>
+      <!-- Template Header ends -->
+
+      <!-- Template Body starts -->
+      <div class="login-box-body">
+
+        <mat-input-container class="justifier">
+          <input matInput placeholder="E-Mail" text="text">
+        </mat-input-container>
+
+        <mat-input-container class="justifier">
+          <input type="password" matInput placeholder="Passwort" text="password">
+        </mat-input-container>
+
+      </div>
+      <!-- Template Body ends -->
+
+      <div class="login-box-footer">
+
+        <div>
+          <button color="primary" mat-raised-button class="login-button">
+            <mat-icon>input</mat-icon> Anmelden
+          </button>
+        </div>
+
+        <div class="account-link">
+          <a [routerLink]="'/register'">
+            Haben Sie noch kein Konto?
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </mat-card>
+
+</div>
