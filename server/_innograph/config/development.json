@@ -1,0 +1,6 @@
+{
+	"activeSchemas":{
+		"social":["profile","friend","post"],
+		"travel":["hotel","room"]
+	}
+}
