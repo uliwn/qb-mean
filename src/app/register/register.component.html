@@ -1,0 +1,61 @@
+<div id="register">
+
+  <mat-card>
+
+    <div class="register-container">
+
+      <form [formGroup]="form" (ngSubmit)="create()">
+        <!-- Template Header starts -->
+        <div class="register-box-header">
+          <div class="logo-bird"></div>
+        </div>
+        <!-- Template Header ends -->
+
+        <!-- Template Body starts -->
+        <div class="register-box-body">
+
+          <mat-input-container class="justifier">
+            <input formControlName="lastName" matInput placeholder="Name" text="text">
+          </mat-input-container>
+
+          <mat-input-container class="justifier">
+            <input formControlName="firstName" matInput placeholder="Vorname" text="text">
+          </mat-input-container>
+
+          <mat-input-container class="justifier">
+            <input formControlName="email" matInput placeholder="E-Mail" text="text">
+          </mat-input-container>
+
+          <mat-input-container class="justifier">
+            <input formControlName="password" type="password" matInput placeholder="Passwort" text="password">
+          </mat-input-container>
+
+          <mat-input-container class="justifier">
+            <input formControlName="passwordConfirm" type="password" matInput placeholder="Passwort (Confirm)" text="password">
+          </mat-input-container>
+
+        </div>
+        <!-- Template Body ends -->
+
+        <div class="register-box-footer">
+
+          <div>
+            <button type="submit" color="primary" mat-raised-button class="register-button">
+              <mat-icon>input</mat-icon> Konto erstellen
+            </button>
+          </div>
+
+          <div class="account-link">
+            <a [routerLink]="'/login'">
+              Haben Sie bereits ein Konto?
+            </a>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+
+  </mat-card>
+
+</div>

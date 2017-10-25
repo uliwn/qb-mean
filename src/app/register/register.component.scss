@@ -1,0 +1,74 @@
+@import "../../styles/variables";
+
+#register {
+  margin:0 auto;
+  display:flex;
+  height: 100%;
+  flex-direction:row-reverse;
+  background-color: #eaeaea;
+
+  mat-card {
+    width: 380px;
+    height: 600px;
+    margin: 4em auto;
+    padding: 0;
+    text-align: center;
+  }
+
+  mat-toolbar-row {
+    justify-content: space-between;
+  }
+
+  .register-container {
+
+    .register-box-header {
+      padding: 14px;
+      background-color: $mat-primary;
+
+      .logo-bird {
+        width: 100%;
+        height: 70px;
+        background: url("../../assets/img/bird-logo.png") no-repeat center/contain;
+      }
+    }
+
+    .register-box-body {
+      padding: 1em 4em;
+
+      .mat-form-field {
+        width: 100%;
+      }
+
+      .mat-form-field-wrapper {
+        padding-top: 1.25em;
+      }
+    }
+
+    .register-box-footer {
+      padding: 1em 2em;
+
+      .register-button {
+        width: 80%;
+        text-transform: uppercase;
+      }
+
+      .account-link {
+        padding-top: 2em;
+
+        > a {
+          color: $mat-primary;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    mat-icon {
+      padding-right: 8px;
+    }
+  }
+
+}
