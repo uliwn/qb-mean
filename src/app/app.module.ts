@@ -39,7 +39,6 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { RegisterComponent } from './register';
 import { LoginComponent } from './login';
-import { ReactComponent } from './react';
 import { ProfileComponent } from './profile';
 import { NoContentComponent } from './no-content';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -70,7 +69,6 @@ type StoreType = {
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    ReactComponent,
     ProfileComponent,
     NoContentComponent,
   ],

@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { RegisterComponent } from './register';
 import { LoginComponent } from './login';
 import { HomeComponent } from './home';
-import { ReactComponent } from './react';
 import { ProfileComponent } from './profile';
 import { NoContentComponent } from './no-content';
 
@@ -14,6 +13,5 @@ export const ROUTES: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'posts', loadChildren: './posts#PostsModule' },
   { path: 'profile', component: ProfileComponent },
-  { path: 'react', component: ReactComponent },
   { path: '**',    component: NoContentComponent },
 ];
