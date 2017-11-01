@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+import shajs from 'sha.js';
 
 @Component({
   selector: 'register',  // <register></register>
@@ -39,7 +40,7 @@ export class RegisterComponent {
           firstName: this.form.value.firstName,
           lastName : this.form.value.lastName,
           email : this.form.value.email,
-          password : this.form.value.password
+          password : shajs('sha256').update(this.form.value.password).digest('hex')
         }
       }
     }).take(1)

@@ -15,23 +15,25 @@
         <div class="register-box-body">
 
           <mat-input-container class="justifier">
-            <input formControlName="lastName" matInput placeholder="Name" text="text">
+            <input formControlName="lastName" matInput placeholder="Name *" text="text">
           </mat-input-container>
 
           <mat-input-container class="justifier">
-            <input formControlName="firstName" matInput placeholder="Vorname" text="text">
+            <input formControlName="firstName" matInput placeholder="Vorname *" text="text">
           </mat-input-container>
 
           <mat-input-container class="justifier">
-            <input formControlName="email" matInput placeholder="E-Mail" text="text">
+            <input formControlName="email" matInput placeholder="E-Mail *" text="text">
           </mat-input-container>
 
           <mat-input-container class="justifier">
-            <input formControlName="password" type="password" matInput placeholder="Passwort" text="password">
+            <input formControlName="password" type="password" matInput placeholder="Passwort *" text="password">
           </mat-input-container>
 
           <mat-input-container class="justifier">
-            <input formControlName="passwordConfirm" type="password" matInput placeholder="Passwort (Confirm)" text="password">
+            <input formControlName="passwordConfirm" type="password" matInput placeholder="Passwort (Confirm) *" text="password">
+            <mat-icon *ngIf="form.value.password !== form.value.passwordConfirm"
+                      class="invalid">clear</mat-icon>
           </mat-input-container>
 
         </div>
@@ -40,7 +42,9 @@
         <div class="register-box-footer">
 
           <div>
-            <button type="submit" color="primary" mat-raised-button class="register-button">
+            <button [disabled]="!form.valid || form.value.password !== form.value.passwordConfirm"
+                    type="submit" color="primary"
+                    mat-raised-button class="register-button">
               <mat-icon>input</mat-icon> Konto erstellen
             </button>
           </div>

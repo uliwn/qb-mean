@@ -42,6 +42,14 @@
       .mat-form-field-wrapper {
         padding-top: 1.25em;
       }
+
+      mat-icon.invalid {
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+        opacity: .8;
+        color: $mat-primary-invalid;
+      }
     }
 
     .register-box-footer {
