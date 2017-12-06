@@ -15,10 +15,12 @@ import config from './config';
 import APIError from '../helpers/APIError';
 import path from 'path';
 import appRoot from 'app-root-path';
-import innograph from '../_innograph/dist'
+import innograph from '../_innograph/dist';
 import postCtrl from '../controllers/post.controller';
 import userCtrl from '../controllers/user.controller';
 
+import passport from 'passport';
+require('./passport');
 
 const app = express();
 
@@ -53,6 +55,7 @@ if (config.env === 'development') {
 }
 app.use(express.static(path.join(appRoot.path, 'dist')));
 
+app.use(passport.initialize());
 app.use('/api', routes);
 
 innograph.init('/api/graphql', app, {post: postCtrl, user: userCtrl});

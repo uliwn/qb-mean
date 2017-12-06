@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import passport from 'passport';
 import httpStatus from 'http-status';
 import APIError from '../helpers/APIError';
 import config from '../config/config';
@@ -33,6 +34,32 @@ function login(req, res, next) {
   return next(err);
 }
 
+function auth(req, res) {
+  // console.log('auth', req);
+  passport.authenticate('local', (err, user, info) => {
+    let token;
+
+    // If Passport throws/catches an error
+    if (err) {
+      res.status(404).json(err);
+      return;
+    }
+
+    // If a user is found
+    if(user){
+      token = user.generateJwt();
+      res.status(200);
+      res.json({
+        token
+      });
+    } else {
+      // If user is not found
+      res.status(401).json({err, user, info});
+    }
+  })(req, res);
+
+}
+
 /**
  * This is a protected route. Will return random number only if jwt token is provided in header.
  * @param req
@@ -47,4 +74,4 @@ function getRandomNumber(req, res) {
   });
 }
 
-export default { login, getRandomNumber };
+export default { login, auth, getRandomNumber };

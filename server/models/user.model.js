@@ -1,7 +1,9 @@
 import Promise from 'bluebird';
 import mongoose from 'mongoose';
 import httpStatus from 'http-status';
+import jwt from 'jsonwebtoken';
 import APIError from '../helpers/APIError';
+import config from '../config/config';
 
 /**
  * User Schema
@@ -17,6 +19,7 @@ const UserSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+    unique: true,
     required: true
   },
   password: {
@@ -40,6 +43,22 @@ const UserSchema = new mongoose.Schema({
  * Methods
  */
 UserSchema.method({
+  /**
+   * Compare password of a User
+   * @param {ObjectId} password - The password to compare.
+   */
+  comparePassword(password, callback) {
+    const isMatch = this.password === password;
+    callback(false, isMatch);
+  },
+
+  generateJwt() {
+
+    return jwt.sign({
+      username: this.email
+    }, config.jwtSecret);
+  }
+
 });
 
 /**

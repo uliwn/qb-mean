@@ -26,8 +26,6 @@ export class RegisterComponent {
   }
 
   public create() {
-    console.log(this.form);
-
     if (!this.form.valid) {
       return;
     }

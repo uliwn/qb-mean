@@ -24,7 +24,7 @@ function get(req, res) {
  * Create new user
  * @returns {User}
  */
-function create2(req, res, next) {
+function register(req, res, next) {
   const user = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -33,7 +33,12 @@ function create2(req, res, next) {
   });
 
   user.save()
-    .then(savedUser => res.json(savedUser))
+    .then((savedUser) => {
+      const token = user.generateJwt();
+      return res.json({
+        token
+      });
+    })
     .catch(e => next(e));
 }
 
