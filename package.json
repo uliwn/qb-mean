@@ -1,7 +1,7 @@
 {
-  "name": "Mean",
-  "version": "2.0.1",
-  "description": "A MEAN stack framework using Angular Webpack Starter kit - featuring Angular (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack",
+  "name": "Quantibird",
+  "version": "0.0.1",
+  "description": "A MEAN stack framework using Angular Webpack Starter kit",
   "keywords": [
     "angular",
     "angular2",
@@ -218,7 +218,7 @@
     "url": "https://github.com/AngularClass/angular-starter/issues"
   },
   "engines": {
-    "node": ">= 4.2.1",
-    "npm": ">= 3"
+    "node": ">= 7.7.1",
+    "npm": ">= 4.1.2"
   }
 }
