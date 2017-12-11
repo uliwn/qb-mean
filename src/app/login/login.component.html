@@ -4,41 +4,47 @@
 
     <div class="login-container">
 
-      <!-- Template Header starts -->
-      <div class="login-box-header">
-        <div class="logo-bird"></div>
-      </div>
-      <!-- Template Header ends -->
+      <form [formGroup]="form" (ngSubmit)="login()">
 
-      <!-- Template Body starts -->
-      <div class="login-box-body">
+        <!-- Template Header starts -->
+        <div class="login-box-header">
+          <div class="logo-bird"></div>
+        </div>
+        <!-- Template Header ends -->
 
-        <mat-input-container class="justifier">
-          <input matInput placeholder="E-Mail" text="text">
-        </mat-input-container>
+        <!-- Template Body starts -->
+        <div class="login-box-body">
 
-        <mat-input-container class="justifier">
-          <input type="password" matInput placeholder="Passwort" text="password">
-        </mat-input-container>
+            <mat-input-container class="justifier">
+              <input formControlName="email" matInput placeholder="E-Mail" text="text">
+            </mat-input-container>
 
-      </div>
-      <!-- Template Body ends -->
+            <mat-input-container class="justifier">
+              <input formControlName="password" type="password" matInput placeholder="Passwort" text="password">
+            </mat-input-container>
 
-      <div class="login-box-footer">
+        </div>
+        <!-- Template Body ends -->
 
-        <div>
-          <button color="primary" mat-raised-button class="login-button">
-            <mat-icon>input</mat-icon> Anmelden
-          </button>
+        <div class="login-box-footer">
+
+          <div>
+            <button color="primary" mat-raised-button
+                    type="submit"
+                    class="login-button">
+              <mat-icon>input</mat-icon> Anmelden
+            </button>
+          </div>
+
+          <div class="account-link">
+            <a [routerLink]="'/register'">
+              Haben Sie noch kein Konto?
+            </a>
+          </div>
+
         </div>
 
-        <div class="account-link">
-          <a [routerLink]="'/register'">
-            Haben Sie noch kein Konto?
-          </a>
-        </div>
-
-      </div>
+      </form>
 
     </div>
 

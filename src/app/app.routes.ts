@@ -9,6 +9,7 @@ import { DataResolver } from './app.resolver';
 
 export const ROUTES: Routes = [
   { path: '',      component: HomeComponent },
+  { path: 'dashboard',      component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'posts', loadChildren: './posts#PostsModule' },

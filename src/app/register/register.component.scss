@@ -4,15 +4,14 @@
   margin:0 auto;
   display:flex;
   height: 100%;
-  flex-direction:row-reverse;
   background-color: #eaeaea;
 
   mat-card {
-    width: 380px;
-    height: 600px;
+    width: 350px;
     margin: 4em auto;
     padding: 0;
     text-align: center;
+    align-self: center;
   }
 
   mat-toolbar-row {
@@ -33,7 +32,7 @@
     }
 
     .register-box-body {
-      padding: 1em 4em;
+      padding: 1em 3em;
 
       .mat-form-field {
         width: 100%;

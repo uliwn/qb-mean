@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule } from 'apollo-angular';
 import { client } from '../graphql.client';
+import { ComponentsModule } from './components/components.module';
 import {
   NgModule,
   ApplicationRef
@@ -26,6 +27,8 @@ import {
   MatGridListModule
 } from '@angular/material';
 import 'hammerjs';
+import 'bootstrap';
+import 'bootstrap-material-design';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -45,7 +48,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
-// import '../styles/template/material-dashboard.scss';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -76,11 +78,12 @@ type StoreType = {
    * Import Angular's modules.
    */
   imports: [
+    ComponentsModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
+    HttpClientModule,
     MatToolbarModule,
     MatCardModule,
     MatIconModule,

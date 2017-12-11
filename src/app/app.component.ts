@@ -8,6 +8,9 @@ import {
 } from '@angular/core';
 import { AppState } from './app.service';
 import { PostsService } from './posts/posts.service';
+
+declare const $: any;
+
 /**
  * App Component
  * Top Level Component
@@ -19,15 +22,19 @@ import { PostsService } from './posts/posts.service';
     './app.component.scss'
   ],
   template: `
-    <header>
-    <!--mat-toolbar color="primary">
-      <a [routerLink]="['/']" class="logotTxt">QUANTYBIRD</a>
-      <a class="links" [routerLink]="['/posts']">Posts</a>
-    </mat-toolbar-->
-    </header>
-    <router-outlet></router-outlet>
-    <footer>
-    </footer>
+    <div class="wrapper">
+      <div class="sidebar" data-color='red' data-image="">
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+      </div>
+      <div class="main-panel">
+        <app-navbar></app-navbar>
+        <router-outlet></router-outlet>
+        <div>
+          <app-footer></app-footer>
+        </div>
+      </div>
+    </div>
   `,
   providers: [PostsService]
 })
@@ -42,6 +49,7 @@ export class AppComponent implements OnInit {
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
+    $.material.init();
   }
 
 }
